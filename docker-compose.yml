@@ -1,0 +1,39 @@
+services:
+  host1:
+    build:
+      context: ./vyos
+    container_name: '${COMPOSE_PROJECT_NAME}-${NODE1}'
+    volumes:
+      - "$NODE1_HOME/lib/modules:/lib/modules"
+    tty: true
+    logging:
+      driver: journald
+      options:
+        tag: "vyos/{{.Name}}/{{.ID}}"
+    hostname: 'vyos-${NODE1}'
+    restart: 'always'
+    networks:
+        trusted_nw:
+          ipv4_address: 192.168.102.101
+        untrusted_nw:
+          ipv4_address: 192.168.103.101
+    ports:
+      - "${NODE1_SSH_HOSTACCESS_PORT}:22"
+    privileged: true
+    env_file: .env
+    command:
+      - /sbin/init
+
+networks:
+  trusted_nw:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.102.0/24
+  untrusted_nw:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.103.0/24
