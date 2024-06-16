@@ -2,7 +2,7 @@
 
 ## Check vyos on docker to make sure it works.
 The VyOS Docker image used here is the one created according to the procedure described on the official VyOS website.
-It will be the one uploaded on DockerHub at [[https://hub.docker.com/repository/docker/jwat/vyos/general](https://hub.docker.com/r/jwat/vyos)]([https://hub.docker.com/repository/docker/jwat/vyos/general](https://hub.docker.com/r/jwat/vyos)).
+It will be the one uploaded on DockerHub at [https://hub.docker.com/r/jwat/vyos](https://hub.docker.com/r/jwat/vyos).
 
 The procedure for creating a Docker image conforms to `VyOS 1.5 (circinus,current)`, which is available at [https://docs.vyos.io/en/latest/contributing/build-vyos.html](https://docs.vyos.io/en/latest/contributing/build-vyos.html).
 
